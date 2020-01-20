@@ -1,5 +1,5 @@
 # EDIT_PROPERTIES README #
-EDIT_PROPERTIES:A utility project to review, create, update and delete properties in a property file
+EDIT_PROPERTIES: A utility project to review, create, update and delete properties in a property file
 
 ### What is this repository for? ###
 
@@ -28,12 +28,13 @@ The repository provides an archive of the key artifacts required to setup (or up
 
 ### How do I build this job? ###
 
-1. 
-2. 
-3. 
-4. 
+1. Provide a URL of a java style properties file
+2. Select one or more properties to review or edit. Use the filter to easily identify related properties
+3. Current values of selected PROPERTIES are dsiplayed. You can edit the VALUE field directly
+4. Perform one of the availabel Actions (UPDATE,DELETE,CREATE,RENAME). Actions apply to checked PROPERTY values only
+5. Click 'Build' to replace original properties file with the updated one. A backup of the original file is archived as a build artifact
 
 
 ### Who do I talk to? ###
 
-* Ioannis K. Moutsatsos
+* Please, file an issue if you have questions or problems using this job
