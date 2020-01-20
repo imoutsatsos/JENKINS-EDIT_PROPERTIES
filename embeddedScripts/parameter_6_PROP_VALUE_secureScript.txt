@@ -1,0 +1,36 @@
+def props= new Properties()
+
+if (!binding.variables.containsKey("PROPERTIES")||PROPERTIES=='')
+   return ['Select one or more properties']
+
+def propertiesFile = new File("$PROPERTIES_SESSIONPATH")
+
+def propKey=PROPERTIES.split(',')
+
+html=''
+propList=[]
+props.load(propertiesFile.newDataInputStream())
+def choices=[]
+propKey.each{
+propVal=props.get(it).toString()
+theProp="${it}=${propVal}"
+propList.add(theProp)
+tablePrefix="""<table>
+                  <thead>
+                    <tr>
+                    <th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">PROPERTY</th>
+                    <th style="border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;">VALUE</th>
+                    </tr>
+                  </thead>
+                <tbody>
+                """ 
+
+      }
+
+tableMain= propList.collect{"""<tr><td style="width:20%"><input type="checkbox" id="check_${it.split('=')[0]}" name="${it.split('=')[0]}" value="${it.split('=')[1]}">${it.split('=')[0]}</td>
+<td style="width:80%"><input id="${it.split('=')[0]}" type="text" class="setting-input" name="${it.split('=')[0]}" value="${it.split('=')[1]}"></td><tr>"""}.join('\n')
+
+tablePostfix="""</tbody></table>
+"""
+return tablePrefix+tableMain+tablePostfix
+  

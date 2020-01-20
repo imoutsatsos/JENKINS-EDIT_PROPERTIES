@@ -1,0 +1,15 @@
+def choices=[]
+def localProps= new Properties()
+
+if (!binding.variables.containsKey("PROPERTIES_SESSIONPATH")||PROPERTIES_SESSIONPATH=='')
+   return ['PROPERTIES_URL_NOTSET']
+
+propertiesFile = new File("$PROPERTIES_SESSIONPATH")
+
+localProps.load(propertiesFile.newDataInputStream())
+
+    localProps.keySet().each{
+      choices.add(it)
+        }
+
+return choices.sort()

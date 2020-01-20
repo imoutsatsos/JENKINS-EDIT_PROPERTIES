@@ -1,0 +1,21 @@
+def props= new Properties()
+def localProps= new Properties()
+
+if (!binding.variables.containsKey("PROPERTIES_URL")||PROPERTIES_URL=='')
+   return ['PROPERTIES_URL_NOTSET']
+
+//write a local and the original properties files to SESSION_PATH
+localPropFileName=PROPERTIES_URL.split('/')[-4..-1].join('_')
+originalFileName=PROPERTIES_URL.split('/')[-1].replace('properties','original')
+
+localPropertiesFile = new File("$SESSION_PATH/$localPropFileName")
+originalPropertiesFile=new File("$SESSION_PATH/$originalFileName")
+localPropertiesFile= new File(localPropertiesFile.canonicalPath)
+
+props.load(new URL(PROPERTIES_URL).openStream())
+props.store(localPropertiesFile.newWriter(),null)
+props.store(originalPropertiesFile.newWriter(),null)
+
+return """
+<input name="value" type="text" class="setting-input   " value="${localPropertiesFile.canonicalPath.replace('\\','/')}">
+"""

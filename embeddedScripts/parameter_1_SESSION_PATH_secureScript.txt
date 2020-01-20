@@ -1,0 +1,10 @@
+import org.kohsuke.stapler.Stapler
+def sessionID= Stapler.getCurrentRequest().getSession().getId()
+def jobSessionPath ="$SESSIONS_WORKSPACE/${jenkinsProject.name}_$sessionID"
+
+//Create Session Folder
+new File(jobSessionPath).mkdirs()
+
+return """
+<input id="jobSessionPath" name="value" type="text" class="setting-input " value="$jobSessionPath">
+"""

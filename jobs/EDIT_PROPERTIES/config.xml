@@ -1,0 +1,603 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>A utility project to review, create, update and delete properties in a property file</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <job-metadata plugin="metadata@1.1.0b">
+      <values class="linked-list">
+        <metadata-string>
+          <name>job-type</name>
+          <description>Options: visualization,data-source
+Galaxy: tool.tool_type</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>data-source</value>
+        </metadata-string>
+        <metadata-string>
+          <name>output-format</name>
+          <description>This is the data type of the output file. It can be one of the supported data types ( e.g., &quot;tabular&quot; ) or the format of the tool&apos;s input dataset ( e.g., format=&quot;input&quot; ). 
+It can also be an image type if the output is destined for visualization</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>properties</value>
+        </metadata-string>
+        <metadata-string>
+          <name>metadata-source</name>
+          <description>This reads the metadata information from the tool&apos;s input dataset properties file(named with the extension.properties)</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>true</exposedToEnvironment>
+          <value>NA</value>
+        </metadata-string>
+        <metadata-string>
+          <name>project-repository</name>
+          <description>Bitbucket repository for this project. example https://bitbucket.org/novartisnibr/qmic-job_name
+Clear if no repository </description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>true</exposedToEnvironment>
+          <value></value>
+        </metadata-string>
+        <metadata-string>
+          <name>project-status</name>
+          <description>A status flag for the project.(test,demo,production,deprecated)</description>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>test</value>
+        </metadata-string>
+        <metadata-tree>
+          <name>stats-engine</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <children class="linked-list">
+            <metadata-string>
+              <name>library</name>
+              <description>comma separated list of stat-engine libraries required for the job.</description>
+              <parent class="metadata-tree" reference="../../.."/>
+              <generated>false</generated>
+              <exposedToEnvironment>true</exposedToEnvironment>
+              <value>NA</value>
+            </metadata-string>
+            <metadata-string>
+              <name>export-session</name>
+              <description>Options: true/false If the code supports it, it will export session data from the stat engine for debugging purposes</description>
+              <parent class="metadata-tree" reference="../../.."/>
+              <generated>false</generated>
+              <exposedToEnvironment>true</exposedToEnvironment>
+              <value>false</value>
+            </metadata-string>
+          </children>
+        </metadata-tree>
+        <metadata-string>
+          <name>project-revision</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>true</exposedToEnvironment>
+          <value>updatePropertyFile_scriptlet.groovy rev 9891</value>
+        </metadata-string>
+        <metadata-string>
+          <name>deprecated</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>false</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <value>false</value>
+        </metadata-string>
+        <metadata-tree>
+          <name>job-info</name>
+          <parent class="job-metadata" reference="../../.."/>
+          <generated>true</generated>
+          <exposedToEnvironment>false</exposedToEnvironment>
+          <children class="linked-list">
+            <metadata-tree>
+              <name>last-saved</name>
+              <description></description>
+              <parent class="metadata-tree" reference="../../.."/>
+              <generated>true</generated>
+              <exposedToEnvironment>false</exposedToEnvironment>
+              <children class="linked-list">
+                <metadata-date>
+                  <name>time</name>
+                  <description></description>
+                  <parent class="metadata-tree" reference="../../.."/>
+                  <generated>true</generated>
+                  <exposedToEnvironment>false</exposedToEnvironment>
+                  <value>
+                    <time>1579536781957</time>
+                    <timezone>America/New_York</timezone>
+                  </value>
+                  <checked>false</checked>
+                </metadata-date>
+                <metadata-tree>
+                  <name>user</name>
+                  <parent class="metadata-tree" reference="../../.."/>
+                  <generated>true</generated>
+                  <exposedToEnvironment>false</exposedToEnvironment>
+                  <children class="linked-list">
+                    <metadata-string>
+                      <name>display-name</name>
+                      <description></description>
+                      <parent class="metadata-tree" reference="../../.."/>
+                      <generated>true</generated>
+                      <exposedToEnvironment>false</exposedToEnvironment>
+                      <value>Ioannis Moutsatsos</value>
+                    </metadata-string>
+                    <metadata-string>
+                      <name>full-name</name>
+                      <description></description>
+                      <parent class="metadata-tree" reference="../../.."/>
+                      <generated>true</generated>
+                      <exposedToEnvironment>false</exposedToEnvironment>
+                      <value>Ioannis Moutsatsos</value>
+                    </metadata-string>
+                  </children>
+                </metadata-tree>
+              </children>
+            </metadata-tree>
+          </children>
+        </metadata-tree>
+      </values>
+    </job-metadata>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.29">
+      <autoRebuild>false</autoRebuild>
+      <rebuildDisabled>false</rebuildDisabled>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>SESSION_PATH</name>
+          <description>Hidden</description>
+          <randomName>choice-parameter-2187319015891126</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import org.kohsuke.stapler.Stapler
+def sessionID= Stapler.getCurrentRequest().getSession().getId()
+def jobSessionPath =&quot;$SESSIONS_WORKSPACE/${jenkinsProject.name}_$sessionID&quot;
+
+//Create Session Folder
+new File(jobSessionPath).mkdirs()
+
+return &quot;&quot;&quot;
+&lt;input id=&quot;jobSessionPath&quot; name=&quot;value&quot; type=&quot;text&quot; class=&quot;setting-input &quot; value=&quot;$jobSessionPath&quot;&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;Error in SESSION_PATH script&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <hudson.model.StringParameterDefinition>
+          <name>WHAT_IS_THIS</name>
+          <description>&lt;h2 style=&quot;color:blue&quot;&gt;1. Enter a URL to a properties file&lt;/h2&gt;</description>
+          <defaultValue>This is a utility that can be used to manage the properties associated with a data set.</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>PROPERTIES_URL</name>
+          <description>URL of a properties File: Example http://yourserver:8080/job/Contribute_ImageList/697/artifact/imageList.properties
+ &lt;h2 style=&quot;color:blue&quot;&gt;2. Select and edit properties&lt;/h2&gt;</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>PROPERTIES_SESSIONPATH</name>
+          <description></description>
+          <randomName>choice-parameter-2551847118885780</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>def props= new Properties()
+def localProps= new Properties()
+
+if (!binding.variables.containsKey(&quot;PROPERTIES_URL&quot;)||PROPERTIES_URL==&apos;&apos;)
+   return [&apos;PROPERTIES_URL_NOTSET&apos;]
+
+//write a local and the original properties files to SESSION_PATH
+localPropFileName=PROPERTIES_URL.split(&apos;/&apos;)[-4..-1].join(&apos;_&apos;)
+originalFileName=PROPERTIES_URL.split(&apos;/&apos;)[-1].replace(&apos;properties&apos;,&apos;original&apos;)
+
+localPropertiesFile = new File(&quot;$SESSION_PATH/$localPropFileName&quot;)
+originalPropertiesFile=new File(&quot;$SESSION_PATH/$originalFileName&quot;)
+localPropertiesFile= new File(localPropertiesFile.canonicalPath)
+
+props.load(new URL(PROPERTIES_URL).openStream())
+props.store(localPropertiesFile.newWriter(),null)
+props.store(originalPropertiesFile.newWriter(),null)
+
+return &quot;&quot;&quot;
+&lt;input name=&quot;value&quot; type=&quot;text&quot; class=&quot;setting-input   &quot; value=&quot;${localPropertiesFile.canonicalPath.replace(&apos;\\&apos;,&apos;/&apos;)}&quot;&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>originalFileName=PROPERTIES_URL.split(&apos;/&apos;)[-1]
+return &apos;Error in Script: &apos;+originalFileName</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>PROPERTIES_URL,SESSION_PATH</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.CascadeChoiceParameter plugin="uno-choice@2.1">
+          <name>PROPERTIES</name>
+          <description>&lt;p&gt;Select a property to review or edit. Use the filter to easily identify related properties</description>
+          <randomName>choice-parameter-36023349581860</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>def choices=[]
+def localProps= new Properties()
+
+if (!binding.variables.containsKey(&quot;PROPERTIES_SESSIONPATH&quot;)||PROPERTIES_SESSIONPATH==&apos;&apos;)
+   return [&apos;PROPERTIES_URL_NOTSET&apos;]
+
+propertiesFile = new File(&quot;$PROPERTIES_SESSIONPATH&quot;)
+
+localProps.load(propertiesFile.newDataInputStream())
+
+    localProps.keySet().each{
+      choices.add(it)
+        }
+
+return choices.sort()
+</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return [&apos;ERROR&apos;]</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>PROPERTIES_SESSIONPATH</referencedParameters>
+          <choiceType>PT_MULTI_SELECT</choiceType>
+          <filterable>true</filterable>
+          <filterLength>1</filterLength>
+        </org.biouno.unochoice.CascadeChoiceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>PROP_VALUE</name>
+          <description>Current values of selected PROPERTIES. You can edit the VALUE field directly
+
+ &lt;h2 style=&quot;color:blue&quot;&gt;3. Select an ACTION to perform&lt;/h2&gt;&lt;p&gt; Actions apply to checked PROPERTY values only</description>
+          <randomName>choice-parameter-36023356375181</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>def props= new Properties()
+
+if (!binding.variables.containsKey(&quot;PROPERTIES&quot;)||PROPERTIES==&apos;&apos;)
+   return [&apos;Select one or more properties&apos;]
+
+def propertiesFile = new File(&quot;$PROPERTIES_SESSIONPATH&quot;)
+
+def propKey=PROPERTIES.split(&apos;,&apos;)
+
+html=&apos;&apos;
+propList=[]
+props.load(propertiesFile.newDataInputStream())
+def choices=[]
+propKey.each{
+propVal=props.get(it).toString()
+theProp=&quot;${it}=${propVal}&quot;
+propList.add(theProp)
+tablePrefix=&quot;&quot;&quot;&lt;table&gt;
+                  &lt;thead&gt;
+                    &lt;tr&gt;
+                    &lt;th style=&quot;border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;&quot;&gt;PROPERTY&lt;/th&gt;
+                    &lt;th style=&quot;border-bottom: 1px solid grey; border-top: 2px solid grey; text-align: center;&quot;&gt;VALUE&lt;/th&gt;
+                    &lt;/tr&gt;
+                  &lt;/thead&gt;
+                &lt;tbody&gt;
+                &quot;&quot;&quot; 
+
+      }
+
+tableMain= propList.collect{&quot;&quot;&quot;&lt;tr&gt;&lt;td style=&quot;width:20%&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;check_${it.split(&apos;=&apos;)[0]}&quot; name=&quot;${it.split(&apos;=&apos;)[0]}&quot; value=&quot;${it.split(&apos;=&apos;)[1]}&quot;&gt;${it.split(&apos;=&apos;)[0]}&lt;/td&gt;
+&lt;td style=&quot;width:80%&quot;&gt;&lt;input id=&quot;${it.split(&apos;=&apos;)[0]}&quot; type=&quot;text&quot; class=&quot;setting-input&quot; name=&quot;${it.split(&apos;=&apos;)[0]}&quot; value=&quot;${it.split(&apos;=&apos;)[1]}&quot;&gt;&lt;/td&gt;&lt;tr&gt;&quot;&quot;&quot;}.join(&apos;\n&apos;)
+
+tablePostfix=&quot;&quot;&quot;&lt;/tbody&gt;&lt;/table&gt;
+&quot;&quot;&quot;
+return tablePrefix+tableMain+tablePostfix
+  </script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &apos;&lt;input name=&quot;value&quot; value=&quot;&apos;+&apos;ERROR_PROP_VALUE&apos;+&apos;&quot; class=&quot;setting-input&quot; type=&quot;text&quot;&gt;&apos;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>PROPERTIES_SESSIONPATH,PROPERTIES</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>true</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name></name>
+          <description>Click to modify or create properties</description>
+          <randomName>choice-parameter-2551847124395977</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>html=&apos;&apos;&apos;&lt;div id=&quot;managePlan&quot;&gt;
+
+&lt;input id=&quot;updateAction&quot; type=&quot;button&quot; value=&quot;UPDATE&quot; onclick=&quot;setJsonActionParam(&apos;jsonFormParam&apos;, &apos;update&apos;)&quot;/&gt;
+
+&lt;input id=&quot;deleteAction&quot; type=&quot;button&quot; value=&quot;DELETE&quot; onclick=&quot;setJsonActionParam(&apos;jsonFormParam&apos;, &apos;delete&apos;)&quot;/&gt;
+
+&lt;input id=&quot;refreshProps&quot; type=&quot;button&quot; value=&quot;REFRESH&quot; onclick=&quot;refreshProperties()&quot;/&gt;
+
+&lt;p&gt;
+&lt;input id=&quot;createAction&quot; type=&quot;button&quot; value=&quot;CREATE&quot; onclick=&quot;setJsonCreateActionParam(&apos;jsonFormParam&apos;, &apos;create&apos;)&quot;/&gt;
+
+&lt;input id=&quot;renameAction&quot; type=&quot;button&quot; value=&quot;RENAME&quot; onclick=&quot;setJsonRenameActionParam(&apos;jsonFormParam&apos;, &apos;rename&apos;)&quot;/&gt;
+
+&lt;/div&gt;&apos;&apos;&apos;
+return html</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <hudson.model.StringParameterDefinition>
+          <name>NEW_PROPERTY</name>
+          <description>&lt;p&gt;For CREATE this is the new property name.A property will not be created if it already exists 
+&lt;p&gt;For RENAME this is the property that will be renamed</description>
+          <defaultValue></defaultValue>
+          <trim>true</trim>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>NEW_VALUE</name>
+          <description>&lt;p&gt;For CREATE, this is the new property value
+&lt;p&gt;For RENAME this is the new property name
+</description>
+          <defaultValue></defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>JSON_FORM_PARAM</name>
+          <description></description>
+          <randomName>choice-parameter-2196406449699612</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>return &quot;&quot;&quot;
+&lt;input id=&quot;newParam&quot; type=&quot;text&quot; class=&quot;setting-input   &quot; value=&quot;$NEW_PROPERTY&quot; hidden&gt;
+&lt;input id=&quot;newVal&quot; type=&quot;text&quot; class=&quot;setting-input   &quot; value=&quot;$NEW_VALUE&quot; hidden &gt;
+&lt;textarea id=&quot;jsonFormParam&quot; name=&quot;value&quot; rows=&quot;5&quot; class=&quot;setting-input   &quot;&gt;&lt;/textarea&gt;
+&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>NEW_PROPERTY,NEW_VALUE</referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>ACTION_STATUS</name>
+          <description>Status of edit  ACTIONS</description>
+          <randomName>choice-parameter-2196406452399676</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>import groovy.json.*
+def props= new Properties()
+html=&apos;&apos;
+propList=[]
+
+if (!binding.variables.containsKey(&quot;JSON_FORM_PARAM&quot;)||JSON_FORM_PARAM==&apos;&apos;)
+   return [&apos;No ACTION performed&apos;]
+
+def jsonSlurper = new JsonSlurper()
+def actObject= jsonSlurper.parseText(JSON_FORM_PARAM)
+
+def propertiesFile = new File(&quot;$PROPERTIES_SESSIONPATH&quot;)
+props.load(propertiesFile.newDataInputStream())
+
+switch(actObject.action){
+case&quot;create&quot;:
+	//CREATE a property
+actObject.params.each{
+  it.keySet().each{pr-&gt;
+if (!(pr in props.keySet()) ){
+    props.setProperty(pr,it[pr])
+    actionMessage=&quot;SUCCESS-Property Created&quot;
+} else{
+  actionMessage=&quot;CANCELED-Property already exists&quot;
+}
+  }
+  
+}
+ break
+ case&quot;update&quot;:
+	//UPDATE properties
+actObject.params.each{
+  it.keySet().each{pr-&gt;
+    props.setProperty(pr,it[pr])
+  }
+actionMessage=&quot;SUCCESS-Properties Updated&quot;
+}
+ break
+  case&quot;rename&quot;:
+	//RENAME one property
+actObject.params.each{
+  it.keySet().each{pr-&gt;
+    //first create a copy with new name
+    props.setProperty(it[pr],props[pr])
+    //then remove prop with old name
+    props.remove(pr)
+  }
+actionMessage=&quot;SUCCESS-Property Renamed&quot;
+}
+ break
+case&quot;delete&quot;:
+actObject.params.each{
+  it.keySet().each{pr-&gt;
+     props.remove(pr)
+  }
+actionMessage=&quot;SUCCESS-Properties Deleted&quot;
+}
+break
+default:
+//do default actions
+println &apos;Nothing to do&apos;
+}
+
+
+
+props.store(propertiesFile.newWriter(), null)
+
+//&lt;textarea id=&quot;jsonAction&quot; name=&quot;value&quot; rows=&quot;5&quot; class=&quot;setting-input   &quot;&gt;$actionMessage &lt;/textarea&gt;
+return &quot;&quot;&quot;
+&lt;b&gt;$actionMessage&lt;/b&gt;
+&quot;&quot;&quot;
+</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script>return &quot;ERROR executing ACTION&quot;</script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters>JSON_FORM_PARAM,PROPERTIES_SESSIONPATH</referencedParameters>
+          <choiceType>ET_FORMATTED_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@2.1">
+          <name>helperJavaScript</name>
+          <description>loads helperJavaScript.js file from buildScripts folder</description>
+          <randomName>choice-parameter-2529929910530808</randomName>
+          <visibleItemCount>1</visibleItemCount>
+          <script class="org.biouno.unochoice.model.GroovyScript">
+            <secureScript plugin="script-security@1.44">
+              <script>env=System.getenv()
+helperJavaScriptPath=&quot;${env[&apos;JENKINS_HOME&apos;]}/jobs/${jenkinsProject.name}/buildScripts/helperJavaScript.js&quot;
+helperJavaScript= new File(helperJavaScriptPath as String)
+return &quot;&quot;&quot; &lt;script type=&quot;text/javascript&quot;&gt; ${helperJavaScript.text} &lt;/script&gt;&quot;&quot;&quot;</script>
+              <sandbox>false</sandbox>
+            </secureScript>
+            <secureFallbackScript plugin="script-security@1.44">
+              <script></script>
+              <sandbox>false</sandbox>
+            </secureFallbackScript>
+          </script>
+          <projectName>EDIT_PROPERTIES</projectName>
+          <parameters class="linked-hash-map"/>
+          <referencedParameters></referencedParameters>
+          <choiceType>ET_FORMATTED_HIDDEN_HTML</choiceType>
+          <omitValueField>false</omitValueField>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.9">
+      <builderId>1576874612366_21</builderId>
+      <scriptId>copyServerStaticArtifact.groovy</scriptId>
+      <propagateParams>true</propagateParams>
+      <parameters>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>artifactFilter</name>
+          <value>original,${GROOVY, script=&quot;return &apos;$PROPERTIES_SESSIONPATH&apos;.split(&apos;/&apos;)[-1]&quot;}</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>contentFolder</name>
+          <value>$SESSION_PATH</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>targetFolder</name>
+          <value></value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+      </parameters>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.9">
+      <builderId>1576882387484_38</builderId>
+      <scriptId>replaceBuildArtifact.groovy</scriptId>
+      <propagateParams>false</propagateParams>
+      <parameters>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>artifactURL</name>
+          <value>$PROPERTIES_URL</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>localDir</name>
+          <value>$SESSION_PATH</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+      </parameters>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+    <org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder plugin="scriptler@2.9">
+      <builderId>1576882387484_39</builderId>
+      <scriptId>Delete_JobSessionWorkspace.groovy</scriptId>
+      <propagateParams>false</propagateParams>
+      <parameters>
+        <org.jenkinsci.plugins.scriptler.config.Parameter>
+          <name>JOB_SESSION_WORKSPACE</name>
+          <value>$SESSION_PATH</value>
+        </org.jenkinsci.plugins.scriptler.config.Parameter>
+      </parameters>
+    </org.jenkinsci.plugins.scriptler.builder.ScriptlerBuilder>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>**/*</artifacts>
+      <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <fingerprint>false</fingerprint>
+      <defaultExcludes>true</defaultExcludes>
+      <caseSensitive>true</caseSensitive>
+    </hudson.tasks.ArtifactArchiver>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.34">
+      <patterns class="empty-list"/>
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>

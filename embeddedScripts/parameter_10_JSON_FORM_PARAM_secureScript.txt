@@ -1,0 +1,5 @@
+return """
+<input id="newParam" type="text" class="setting-input   " value="$NEW_PROPERTY" hidden>
+<input id="newVal" type="text" class="setting-input   " value="$NEW_VALUE" hidden >
+<textarea id="jsonFormParam" name="value" rows="5" class="setting-input   "></textarea>
+"""

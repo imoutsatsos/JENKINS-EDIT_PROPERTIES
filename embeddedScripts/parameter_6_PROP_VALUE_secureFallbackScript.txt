@@ -1,0 +1,1 @@
+return '<input name="value" value="'+'ERROR_PROP_VALUE'+'" class="setting-input" type="text">'

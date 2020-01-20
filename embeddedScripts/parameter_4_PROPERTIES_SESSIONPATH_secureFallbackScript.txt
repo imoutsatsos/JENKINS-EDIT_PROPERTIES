@@ -1,0 +1,2 @@
+originalFileName=PROPERTIES_URL.split('/')[-1]
+return 'Error in Script: '+originalFileName

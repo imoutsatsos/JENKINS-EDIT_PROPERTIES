@@ -1,0 +1,15 @@
+html='''<div id="managePlan">
+
+<input id="updateAction" type="button" value="UPDATE" onclick="setJsonActionParam('jsonFormParam', 'update')"/>
+
+<input id="deleteAction" type="button" value="DELETE" onclick="setJsonActionParam('jsonFormParam', 'delete')"/>
+
+<input id="refreshProps" type="button" value="REFRESH" onclick="refreshProperties()"/>
+
+<p>
+<input id="createAction" type="button" value="CREATE" onclick="setJsonCreateActionParam('jsonFormParam', 'create')"/>
+
+<input id="renameAction" type="button" value="RENAME" onclick="setJsonRenameActionParam('jsonFormParam', 'rename')"/>
+
+</div>'''
+return html

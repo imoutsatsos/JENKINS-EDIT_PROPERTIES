@@ -1,0 +1,71 @@
+import groovy.json.*
+def props= new Properties()
+html=''
+propList=[]
+
+if (!binding.variables.containsKey("JSON_FORM_PARAM")||JSON_FORM_PARAM=='')
+   return ['No ACTION performed']
+
+def jsonSlurper = new JsonSlurper()
+def actObject= jsonSlurper.parseText(JSON_FORM_PARAM)
+
+def propertiesFile = new File("$PROPERTIES_SESSIONPATH")
+props.load(propertiesFile.newDataInputStream())
+
+switch(actObject.action){
+case"create":
+	//CREATE a property
+actObject.params.each{
+  it.keySet().each{pr->
+if (!(pr in props.keySet()) ){
+    props.setProperty(pr,it[pr])
+    actionMessage="SUCCESS-Property Created"
+} else{
+  actionMessage="CANCELED-Property already exists"
+}
+  }
+  
+}
+ break
+ case"update":
+	//UPDATE properties
+actObject.params.each{
+  it.keySet().each{pr->
+    props.setProperty(pr,it[pr])
+  }
+actionMessage="SUCCESS-Properties Updated"
+}
+ break
+  case"rename":
+	//RENAME one property
+actObject.params.each{
+  it.keySet().each{pr->
+    //first create a copy with new name
+    props.setProperty(it[pr],props[pr])
+    //then remove prop with old name
+    props.remove(pr)
+  }
+actionMessage="SUCCESS-Property Renamed"
+}
+ break
+case"delete":
+actObject.params.each{
+  it.keySet().each{pr->
+     props.remove(pr)
+  }
+actionMessage="SUCCESS-Properties Deleted"
+}
+break
+default:
+//do default actions
+println 'Nothing to do'
+}
+
+
+
+props.store(propertiesFile.newWriter(), null)
+
+//<textarea id="jsonAction" name="value" rows="5" class="setting-input   ">$actionMessage </textarea>
+return """
+<b>$actionMessage</b>
+"""
